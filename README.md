@@ -17,7 +17,6 @@ The website leverages RESTful services written in Java, and follows modern web d
 - **Notifications:** A notification system to keep users informed about their bookings, messages, and other important updates.
 - **Security:** Standard security measures are implemented to protect user data and ensure a safe browsing experience.
 
-![image]()
 <img src="./notebridge/preview/Teacher Profile_ From own perspective.svg" alt="Profile" style="width: 100%;">
 
 ## My Contribution
@@ -37,7 +36,6 @@ For a detailed overview of the API endpoints and their usage, please refer to th
 ### Interactive Map
 - **Custom Interactive Markers:** I developed an interactive map that allows you to find teachers in your area. The map can be filtered to display teachers with certain instruments and lesson types. Each teacher is represented by a marker that, when clicked, directs users to the corresponding teacher's profile page, making it easier for users to find and connect with teachers in their area.
 
-![image]()
 <img src="./notebridge/preview/Notifications.svg" alt="Desktop Main Page" style="width: 100%;">
 
 ## Teammate's Contribution
@@ -50,6 +48,5 @@ NoteBridge is a music community platform that connects musicians of all levels, 
 
 For more information, visit [NoteBridge on LinkedIn](https://nl.linkedin.com/company/note-bridge).
 
-![image]()
 <img src="./notebridge/preview/Lessons.svg" alt="Lessons" style="width: 100%">
 
