@@ -1,198 +1,328 @@
-`POST` and `PUT` methods consume a `JSON` object with all the details.
-# Booking
-`GET /booking` get all bookings
+# NoteBridge API Documentation
 
-`POST /booking` insert new `Booking` along with `Payment` and `Notification`
+## General Information
+- **Methods:** `POST` and `PUT` consume a `JSON` object with all the details.
 
-`GET /booking/count` get total amount of bookings
+---
 
-`GET /booking/{id}` get booking by booking id
+## Booking
 
-`GET /booking/student/{id}` get booking by student id
+- **GET /booking**  
+  Retrieves all bookings.
 
-`GET /booking/lesson/{id}` get booking by lesson id
+- **POST /booking**  
+  Inserts a new `Booking` along with `Payment` and `Notification`.
 
-`GET /booking/schedule/{id}` get booking by schedule id
+- **GET /booking/count**  
+  Retrieves the total number of bookings.
 
-`GET /booking/schedule/{id}` get booking by schedule id
+- **GET /booking/{id}**  
+  Retrieves a booking by its ID.
 
-`GET /booking/count/{id}` get amount of bookings in the past of given student id
+- **GET /booking/student/{id}**  
+  Retrieves bookings by student ID.
 
-`POST /booking/finished/{id}` sets the booking with the id to finished
+- **GET /booking/lesson/{id}**  
+  Retrieves bookings by lesson ID.
 
-`POST /booking/canceled/{id}` set the booking with the id to canceled
+- **GET /booking/schedule/{id}**  
+  Retrieves bookings by schedule ID.
 
-`DELETE /booking/{id}` delete booking
-# Instrument
-`GET /instruments` get all instruments
+- **GET /booking/count/{id}**  
+  Retrieves the number of past bookings for a given student ID.
 
-`GET /instruments/{id}` get instrument by their id
+- **POST /booking/finished/{id}**  
+  Marks the booking with the given ID as finished.
 
-`GET /instruments/count` get count of all the instruments
+- **POST /booking/canceled/{id}**  
+  Marks the booking with the given ID as canceled.
 
-`GET /instruments/student/{id}` get all instruments learned by student with the given id
+- **DELETE /booking/{id}**  
+  Deletes a booking by its ID.
 
-`POST /instruments` add a new instrument
+---
 
-`PUT /instruments` updates an instrument
+## Instrument
 
-`DELETE /instruments/{id}` deletes an instrument by their id
-# Lesson
-`GET /lessons` gets all lessons
+- **GET /instruments**  
+  Retrieves all instruments.
 
-`GET /lessons/{id}` gets lesson by lesson id
+- **GET /instruments/{id}**  
+  Retrieves an instrument by its ID.
 
-`GET /lessons/count` get number of all lessons
+- **GET /instruments/count**  
+  Retrieves the total count of instruments.
 
-`GET /lessons/student/{id}` get all lessons of the student
+- **GET /instruments/student/{id}**  
+  Retrieves all instruments learned by a student with the given ID.
 
-`GET /lessons/student/count/{id}` get lesson count of a student
+- **POST /instruments**  
+  Adds a new instrument.
 
-`GET /lessons/teacher/{id}` get all lessons of the teacher
+- **PUT /instruments**  
+  Updates an instrument.
 
-`PUT /lessons` updates a lesson with new lesson object
+- **DELETE /instruments/{id}**  
+  Deletes an instrument by its ID.
 
-`POST /lessons` adds a lesson, consumes JSON
+---
 
-`POST /lessons` adds a lesson, consumes type application form
-- parameters:
-  - lessonPrice
-  - lessonInstrument
-  - lessonLevel
-  - lessonDescription
-  - lessonTitle
+## Lesson
 
-`DELETE /lessons/{id}` deletes a lesson with the given id 
+- **GET /lessons**  
+  Retrieves all lessons.
 
-`GET /lessons/search?lessonOffset=0&lessonInstrumentId=%%&lessonSkillId=%%&lessonRating=%%&lessonLocation=%%&lessonAvailbility=%%&lessonType=%%` search for lesson by filtering the instrument id, skill id, lesson rating and lesson location.
-- Query parameters:
-  - lessonOffset
-  - lessonInstrumentId
-  - lessonSkillId
-  - lessonRating
-  - lessonLocation
-  - lessonAvailability
-  - lessonType
-# Messages
-`GET /message/participant/{id}` gets all message where the sending id is `id` or the receiving id is `id`.
+- **GET /lessons/{id}**  
+  Retrieves a lesson by its ID.
 
-`POST /message` adds a new message
-# Notification
-`POST /notification` adds a new notification
+- **GET /lessons/count**  
+  Retrieves the total number of lessons.
 
-`GET /notification/{id}` gets notification by id
+- **GET /lessons/student/{id}**  
+  Retrieves all lessons of the student.
 
-`GET /notification/user/id` gets notification for a user id
+- **GET /lessons/student/count/{id}**  
+  Retrieves the lesson count for a student.
 
-`GET /notification/count` gets amount of notification
+- **GET /lessons/teacher/{id}**  
+  Retrieves all lessons of the teacher.
 
-`GET /notification/confirm/{id}` confirms the notification
+- **PUT /lessons**  
+  Updates a lesson with a new lesson object.
 
-`DELETE /notification/{id}` delete notification with the id
-# Payment
-- payments are added along with the booking
+- **POST /lessons**  
+  Adds a lesson, consumes JSON.
 
-`PUT /payment/{id}` updates payment to being paid with the current timestamp
-# Review
-`GET /reviews` gets all reviews
+- **POST /lessons**  
+  Adds a lesson, consumes type application form.
+  - **Parameters:**
+    - `lessonPrice`
+    - `lessonInstrument`
+    - `lessonLevel`
+    - `lessonDescription`
+    - `lessonTitle`
 
-`GET /reviews/teacher/{id}` gets all reviews with their teacher id
+- **DELETE /lessons/{id}**  
+  Deletes a lesson by its ID.
 
-`GET /reviews/count/{id}` gets the count of the reviews of the teacher with id `id`
+- **GET /lessons/search**  
+  Searches for lessons by filtering the following parameters:
+  - **Query Parameters:**
+    - `lessonOffset`
+    - `lessonInstrumentId`
+    - `lessonSkillId`
+    - `lessonRating`
+    - `lessonLocation`
+    - `lessonAvailability`
+    - `lessonType`
 
-`GET /reviews/has-review-from/{lessonId}/studentId}` gets the count of the reviews written by that student given that lesson
+---
 
-`POST /reviews` adds a new review, consumes type application form
-- parameters:
-  - addMark
-  - reviewComment
-  - teacherId
-  - studentId
-  - lessonId
+## Messages
 
-`DELETE /reviews/{lessonId}/{studentId}` deletes a review from a student for the given lesson
-# Skill
-`GET /skill` gets all skills
+- **GET /message/participant/{id}**  
+  Retrieves all messages where the sender ID or the receiver ID is `{id}`.
 
-`GET /skill/{id}` gets skill by its id
-# Teacher Instruments
-`GET teacher-instruments` gets all instruments of the teacher
+- **POST /message**  
+  Adds a new message.
 
-`GET teacher-instruments/{id}` gets all instruments of the teacher by their teacher id
+---
 
-`GET teacher-instruments/instrument/{id}` gets all instruments of the teacher by their instrument id
-# TeacherSchedules
-- schedule = time slot
+## Notification
 
-`GET /schedule` gets all schedules
+- **POST /notification**  
+  Adds a new notification.
 
-`GET /schedule/id` get schedule by their id
+- **GET /notification/{id}**  
+  Retrieves a notification by its ID.
 
-`GET /schedule/count` gets total schedule count
+- **GET /notification/user/id**  
+  Retrieves notifications for a user by their ID.
 
-`GET /schedule/teacher/{id}` gets schedule by teacher id
+- **GET /notification/count**  
+  Retrieves the total number of notifications.
 
-`GET /schedule/teacher/free/{id}` get all free schedules by teacher id
+- **GET /notification/confirm/{id}**  
+  Confirms a notification by its ID.
 
-`POST /schedule` add schedule for teacher
+- **DELETE /notification/{id}**  
+  Deletes a notification by its ID.
 
-`DELETE /schedule/{id}` delete schedule with given id
-# Teacher
-`GET /teachers` gets all teachers
+---
 
-`GET /teachers/{id}` gets teacher by id
+## Payment
 
-`GET /teachers/count` gets count of all teachers
+- Payments are added along with the booking.
 
-`GET /teachers/search?instrumentId=%%&skillId=%%&rating=%%&online=%%&date=%%`
-- online is `true` or `false`
-- date is YYYY-MM-DD format
-- example: `/teachers/search?instrument-id=3&online=true&date=2023-01-29`
+- **PUT /payment/{id}**  
+  Updates payment status to "paid" with the current timestamp.
 
-`POST /teachers` adds a new teacher
+---
 
-`PUT /teachers` updates a teacher, consumes type multipart form data
-- parameters:
-  - editFullname
-  - is_online
-  - editCountry
-  - editCity
-  - editExperience
-  - editZip
-  - instrument
+## Review
 
-`DELETE /teachers/{id}` deletes teacher by id
-# User
-`GET /users` gets all users
+- **GET /reviews**  
+  Retrieves all reviews.
 
-`GET /users/{id}` get user by their id
+- **GET /reviews/teacher/{id}**  
+  Retrieves all reviews for a teacher by their ID.
 
-`GET /users/count` get count of users (=students)
+- **GET /reviews/count/{id}**  
+  Retrieves the count of reviews for a teacher by their ID.
 
-`GET /users/count/city` get count of all unique cities
+- **GET /reviews/has-review-from/{lessonId}/studentId**  
+  Retrieves the count of reviews written by a student for a given lesson.
 
-`GET users/current` gets current user logged in
+- **POST /reviews**  
+  Adds a new review, consumes type application form.
+  - **Parameters:**
+    - `addMark`
+    - `reviewComment`
+    - `teacherId`
+    - `studentId`
+    - `lessonId`
 
-`GET /users/profile/{id}` gets profile details of user with the given id
+- **DELETE /reviews/{lessonId}/{studentId}**  
+  Deletes a review from a student for the given lesson.
 
-`GET  /users/exists/{email}` returns if a user exists by the given email
+---
 
-`POST /users` creates a user, consumes JSON
+## Skill
 
-`PUT /users` updates user, consumes type multipart form data
-- parameters:
-  - editFullName
-  - is_online
-  - editCountry
-  - editCity
-  - editProfileImage
+- **GET /skill**  
+  Retrieves all skills.
 
-`PUT /users` updates a user, consumes a json
+- **GET /skill/{id}**  
+  Retrieves a skill by its ID.
 
-`PUT /users/description` updates the description of a user
+---
 
-`DELETE /users/{id}` deletes user by their id
-# Zip code coordinates
-`GET /zipcode-coordinates` gets all zip code coordinates
+## Teacher Instruments
 
-`GET /zipcode-coordinates/{zipcode}` gets coordinates by zip code
+- **GET /teacher-instruments**  
+  Retrieves all instruments of the teacher.
+
+- **GET /teacher-instruments/{id}**  
+  Retrieves all instruments of the teacher by their teacher ID.
+
+- **GET /teacher-instruments/instrument/{id}**  
+  Retrieves all instruments of the teacher by their instrument ID.
+
+---
+
+## Teacher Schedules
+- **Note:** Schedule = Time slot
+
+- **GET /schedule**  
+  Retrieves all schedules.
+
+- **GET /schedule/id**  
+  Retrieves a schedule by its ID.
+
+- **GET /schedule/count**  
+  Retrieves the total schedule count.
+
+- **GET /schedule/teacher/{id}**  
+  Retrieves schedules by teacher ID.
+
+- **GET /schedule/teacher/free/{id}**  
+  Retrieves all free schedules by teacher ID.
+
+- **POST /schedule**  
+  Adds a schedule for a teacher.
+
+- **DELETE /schedule/{id}**  
+  Deletes a schedule by its ID.
+
+---
+
+## Teacher
+
+- **GET /teachers**  
+  Retrieves all teachers.
+
+- **GET /teachers/{id}**  
+  Retrieves a teacher by their ID.
+
+- **GET /teachers/count**  
+  Retrieves the total count of teachers.
+
+- **GET /teachers/search**  
+  Searches for teachers based on the following parameters:
+  - **Query Parameters:**
+    - `instrumentId`
+    - `skillId`
+    - `rating`
+    - `online` (true/false)
+    - `date` (format: YYYY-MM-DD)
+  - **Example:** `/teachers/search?instrument-id=3&online=true&date=2023-01-29`
+
+- **POST /teachers**  
+  Adds a new teacher.
+
+- **PUT /teachers**  
+  Updates a teacher, consumes type multipart form data.
+  - **Parameters:**
+    - `editFullname`
+    - `is_online`
+    - `editCountry`
+    - `editCity`
+    - `editExperience`
+    - `editZip`
+    - `instrument`
+
+- **DELETE /teachers/{id}**  
+  Deletes a teacher by their ID.
+
+---
+
+## User
+
+- **GET /users**  
+  Retrieves all users.
+
+- **GET /users/{id}**  
+  Retrieves a user by their ID.
+
+- **GET /users/count**  
+  Retrieves the total count of users (students).
+
+- **GET /users/count/city**  
+  Retrieves the count of all unique cities.
+
+- **GET /users/current**  
+  Retrieves the current logged-in user.
+
+- **GET /users/profile/{id}**  
+  Retrieves profile details of a user by their ID.
+
+- **GET /users/exists/{email}**  
+  Checks if a user exists by the given email.
+
+- **POST /users**  
+  Creates a user, consumes JSON.
+
+- **PUT /users**  
+  Updates a user, consumes type multipart form data.
+  - **Parameters:**
+    - `editFullName`
+    - `is_online`
+    - `editCountry`
+    - `editCity`
+    - `editProfileImage`
+
+- **PUT /users/description**  
+  Updates the description of a user.
+
+- **DELETE /users/{id}**  
+  Deletes a user by their ID.
+
+---
+
+## Zip Code Coordinates
+
+- **GET /zipcode-coordinates**  
+  Retrieves all zip code coordinates.
+
+- **GET /zipcode-coordinates/{zipcode}**  
+  Retrieves coordinates by zip code.
