@@ -12,11 +12,11 @@ public enum SMTP {
         // SMTP server details
         String host = "smtp.elasticemail.com";
         int port = 587; // Replace with your SMTP server port
-        String username = "d.chitoraga@student.utwente.nl";
-        String password = "5C4D2726A8B3216CA4FAE538CD7914C2BDA8";
+        String username = "YOUR_EMAIL";
+        String password = "YOUR_PASSWORD";
 
         // Sender and recipient email addresses
-        String senderEmail = "d.chitoraga@student.utwente.nl";
+        String senderEmail = "YOUR_EMAIL";
         String recipientEmail = "notebridge.g1@gmail.com";
 
         try {
